@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id='root'></div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type='text/babel'>
+    class App extends React.Component {
+      constructor() {
+        super()
+        this.state = {
+          nome: "Joao",
+          texto: "Esse e o texto de abertura"
+        }
+      }
+      alterarNome = (event) => {
+        this.setState({nome: event.target.value})
+      }
+      alterarTexto = (event) => {
+        this.setState({texto: event.target.value})
+      }
+      render() {
+        return(
+          <div>
+            <input
+              type="text"
+              value={this.state.nome}
+              onChange={this.alterarNome}
+            />
+            <textarea 
+              value={this.state.texto} 
+              cols="20" 
+              rows="5"
+              onChange={this.alterarTexto}
+              ></textarea>
+
+            <p>Valor: {this.state.nome}</p>
+            <p>Texto: {this.state.texto}</p>
+          </div>
+        );
+      }
+    }
+    
+
+    ReactDOM.render(
+      <App />,
+      document.getElementById("root")
+    );
+  </script>
+</body>
+</html>

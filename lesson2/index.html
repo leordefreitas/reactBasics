@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<style>
+  .red{
+    background-color: red;
+    color: white;
+    padding: 10px;
+  }
+  .green{
+    background-color: green;
+    color: black;
+    padding: 10px;
+  }
+</style>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id='root'></div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type='text/babel'>
+
+  function CompA(props) {
+    return(
+        <h1 className="red">Meu nome e {props.name} {props.sobrenome}</h1>
+      );
+  }
+
+  class CompB extends React.Component {
+    render() {
+      return(
+        <h1 className="green">Meu nome e {this.props.name} {this.props.sobrenome}</h1>
+      );
+    }
+  }
+
+  class Soma extends React.Component {
+    render() {
+      return(
+        <div className="red">
+          <h1>
+            O resultado da soma de {this.props.a} + {this.props.b} = {this.props.a + this.props.b}
+          </h1>
+        </div>
+      );
+    }
+  }
+
+    class MeuComponente extends React.Component {
+      render() {
+        return(
+          <div>
+            <CompA name="Leonardo" sobrenome="Freitas"/>
+            <hr />
+            <CompB name="Leonardo" sobrenome="Freitas"/>
+            <hr />
+            <Soma a={10} b={100} />
+          </div>
+        )
+      }
+    }                                                                                                                                   
+                                                                                                                      
+    const root = document.getElementById('root');
+    ReactDOM.render(<MeuComponente />, root);
+  </script>
+</body>                                                                                                                                   
+</html>                                                                                                                                 

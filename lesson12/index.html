@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id='root'></div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type='text/babel'>
+    class App extends React.Component {
+      constructor() {
+        super()
+        this.state = {
+          username: "",
+          password: ""
+        }
+      }
+      alterarUsername = a => {
+        this.setState({username: a.target.value});
+      }
+      alterarPassoword = a => {
+        this.setState({password: a.target.value});
+      }
+      consoleInformacaoLoginSubmit = e => {
+        console.log(this.state);
+        e.preventDefault();
+      }
+      render() {
+        return(
+          <div>
+            <form onSubmit={this.consoleInformacaoLoginSubmit}>
+              <input 
+                value={this.state.username}
+                type="text" 
+                placeholder="Username" 
+                onChange={this.alterarUsername} 
+              />
+              <input 
+                value={this.state.password}
+                type="password" 
+                placeholder="Password" 
+                onChange={this.alterarPassoword}
+              />
+              <button>Entrar</button>
+            </form>
+          </div>
+        );
+      }
+    }
+
+    ReactDOM.render(
+      <App />,
+      document.getElementById("root")
+    );
+  </script>
+</body>
+</html>

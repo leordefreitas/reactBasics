@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id='root'></div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type='text/babel'>
+    class Nome1 extends React.Component {
+      constructor() {
+        super()
+        this.state = {
+          nome: "Leonardo"
+        }
+        this.comandoClique = this.comandoClique.bind(this);
+      }
+
+      comandoClique = () => {
+        this.setState({nome: "Amoroso", Idade: 10});
+      }
+
+      render() {
+        return(
+          <div>
+            <p>Nome: {this.state.nome}</p>
+            <button onClick={this.comandoClique}>Clique Aqui</button>
+          </div>
+        );
+      }
+    }
+
+    class Nome2 extends React.Component {
+      constructor() {
+        super()
+        this.state = {
+          nome: "Lucia"
+        }
+        this.comandoClique = this.comandoClique.bind(this);
+      }
+
+      comandoClique = () => {
+        this.setState({nome: "Rodrigues", Idade: 10});
+      }
+
+      render() {
+        return(
+          <div>
+            <p>Nome: {this.state.nome}</p>
+            <button onClick={this.comandoClique}>Clique Aqui</button>
+          </div>
+        );
+      }
+    }
+
+    class Nome3 extends React.Component {
+      constructor() {
+        super()
+        this.state = {
+          nome: "Maria"
+        }
+        this.comandoClique = this.comandoClique.bind(this);
+      }
+
+      comandoClique = () => {
+        this.setState({nome: "Das Gracas", Idade: 10});
+      }
+
+      render() {
+        return(
+          <div>
+            <p>Nome: {this.state.nome}</p>
+            <button onClick={this.comandoClique}>Clique Aqui</button>
+          </div>
+        );
+      }
+    }
+
+    class App extends React.Component {
+      render() {
+        return(
+          <div>
+            <h1>Exercicio</h1>
+            <Nome1 />
+            <Nome2 />
+            <Nome3 />
+          </div>
+        );
+      }
+    }
+
+
+    const root = document.getElementById('root');
+    ReactDOM.render(<App />, root);
+  </script>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+
+  <div id='root'></div>
+  <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+  <script type='text/babel'>
+
+    class Noticias extends React.Component {
+      constructor(props) {
+        super(props)
+      }
+      render() {
+        return(
+          <div>
+            <h1>{this.props.noticia.titulo}</h1>
+            <p>{this.props.noticia.texto}</p>
+            <small><i>{this.props.noticia.autor}</i></small>
+          </div>
+        );
+      }
+    }
+
+    class App extends React.Component {
+      render() {
+
+        const listaDeNoticias = [
+          {
+            titulo: "Titulo 1",
+            texto: "Texto 1",
+            autor: "Autor 1"
+          },
+          {
+            titulo: "Titulo 2",
+            texto: "Texto 2",
+            autor: "Autor 2"
+          },
+          {
+            titulo: "Titulo 3",
+            texto: "Texto 3",
+            autor: "Autor 3"
+          },
+        ];
+        
+        const final = listaDeNoticias.map(a => <Noticias noticia={a} />); // aqui e o princiapl ele pega a Classe Noticias e usa para trazer uma nova lista e depoi so mostra no principal
+
+        return(
+          <div>
+            <h1>Noticia</h1>
+            <hr/>
+            {final}
+          </div>
+        );
+      }
+    }
+
+
+
+    ReactDOM.render(
+      <App />,
+      document.getElementById("root")
+    );
+  </script>
+</body>
+</html>
